@@ -32,7 +32,7 @@ const DrinkLists = () => {
       setCurrentDrinkIndex((prevIndex) => (prevIndex + 1) % drinks.length);
     }, 6000);
 
-    setIntervalId(interval)
+    setIntervalId(interval);
 
     return () => clearInterval(interval);
   }, [drinks]);
@@ -45,13 +45,23 @@ const DrinkLists = () => {
 
   const handleNextClick = () => {
     setCurrentDrinkIndex((prevIndex) => (prevIndex + 1) % drinks.length);
+    if (showDetails) {
+      setShowDetails(false);
+      if (!intervalId) {
+        const newIntervalId = setInterval(() => {
+          setCurrentDrinkIndex((prevIndex) => (prevIndex + 1) % drinks.length);
+        }, 6000);
+        setIntervalId(newIntervalId);
+      }
+    }
   };
 
   const handleDetails = () => {
     setShowDetails(!showDetails);
-    if(intervalId) {
-        clearInterval(intervalId)
-        setIntervalId(null)
+    // Clear the interval to stop the animation
+    if (intervalId) {
+      clearInterval(intervalId);
+      setIntervalId(null);
     }
   };
 
@@ -80,11 +90,9 @@ const DrinkLists = () => {
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
               />
-
-              <span class="material-symbols-outlined">arrow_back</span>
+              <span className="material-symbols-outlined">arrow_back</span>
             </button>
             <button className="det" onClick={handleDetails}>
-              {" "}
               Details
             </button>
             <button className="next" onClick={handleNextClick}>
@@ -92,8 +100,7 @@ const DrinkLists = () => {
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
               />
-
-              <span class="material-symbols-outlined">arrow_forward</span>      
+              <span className="material-symbols-outlined">arrow_forward</span>
             </button>
           </div>
         </div>
