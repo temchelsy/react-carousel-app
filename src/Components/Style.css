@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .drink-item {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 100vh;
+    width: 100vw;
+    margin-bottom: 27%;
+    color: aqua;
+    animation: slideIn 4s ease-in-out forwards;
+  }
+  
+  .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.1;
+  }
+  
+  .drink-item.active .details {
+    opacity: 1;
+  }
+  
+  .drink-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0000;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .drink-item.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  .h3 {
+    text-align: center;
+  }
+  
+  .img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100vw; 
+    height: 110vh; 
+    object-fit: cover; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -4; 
+  }
+  
+  .caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    color: black;
+  }
+  
+  h2 {
+    text-align: center;
+    color: black;
+    transition: all 1s;
+  }
+  
+  .btns {
+    position: fixed; 
+    bottom: 50%;
+    transform: translateY(
+      50%
+    ); 
+    width: 100vw; 
+  }
+  
+  .prev {
+    position: absolute;
+    left: 0; 
+    transform: translateX(0%); 
+  }
+  
+  .next {
+    position: absolute;
+    right: 0; 
+    transform: translateX(0%); 
+  }
+  
+  .det {
+    position: absolute;
+    left: 50%; 
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    margin:18rem;
+    margin-left: 1px;
+  }
+  
+  h3 {
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    transition: all 0.5s;
+  }
+  
+  .prev:hover,
+  .next:hover,
+  .det:hover {
+    font-size: 18px;
+    color: black;
+  }
+  
+  p {
+    color: white;
+  }
+  
+  @media (max-width: 800px) {
+    body {
+      margin: 0;
+    }
+  
+    h2 {
+      font-size: 13px;
+    }
+  
+    .image-container {
+      margin: 0;
+    }
+  
+    .drink-list {
+      margin: 0;
+    }
+  
+    .img {
+      width: 40vw;
+      height: 75vh;
+    }
+  
+    .drink-item {
+      height: 80vh;
+      width: 50vw;
+      margin: 0;
+    }
+  
+    .btns {
+      gap: 10px;
+      margin: 0;
+    }
+  
+    .prev,
+    .next,
+    .det {
+      font-size: 10px;
+      margin: 10px 15px;
+    }
+  }
+  
+  .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s;
+  }
+  
+  .drink-item.active .details {
+    opacity: 1;
+  }
+  
+  .overlay {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      padding: 10px;
+      animation: double-slide 2s forwards;
+      opacity: 0;
+  }
+  
+  @keyframes double-slide {
+      0% {
+          transform: translateX(-100%);
+          opacity: 0;
+      }
+      50% {
+          transform: translateX(0);
+          opacity: 1;
+      }
+      100% {
+          transform: translateX(0);
+          opacity: 1;
+      }
+  }
+  
+  
